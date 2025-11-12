@@ -2,7 +2,7 @@ import requests
 
 content = input("Input the URL: ")
 url = "https://api.qrcode-monkey.com/qr/custom"
-logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/b84b14b8bacd54f7cc71d2e944b44167dd561395/background.png'
+logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/final.jpg'
 
 payload = {
     "data": content,
@@ -28,7 +28,6 @@ try:
     response = requests.post(url, json=payload)
     
     if response.status_code == 200:
-        # 檢查是否直接收到圖片
         if response.content.startswith(b"\x89PNG"):
             with open("qrcode.png", "wb") as f:
                 f.write(response.content)
