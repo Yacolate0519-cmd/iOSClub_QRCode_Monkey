@@ -1,6 +1,10 @@
 import requests
+import os
 
 content = input("Input the URL: ")
+save_dir = os.path.expanduser("~/Downloads")
+os.makedirs(save_dir, exist_ok=True)
+save_path = os.path.join(save_dir, "qrcode.png")
 url = "https://api.qrcode-monkey.com/qr/custom"
 logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/final.jpg'
 
@@ -29,9 +33,9 @@ try:
     
     if response.status_code == 200:
         if response.content.startswith(b"\x89PNG"):
-            with open("qrcode.png", "wb") as f:
+            with open(save_path, "wb") as f:
                 f.write(response.content)
-            print("✅ QR Code 已成功保存為 qrcode.png")
+            print(f"✅ QR Code 已成功保存至 {save_path}")
         else:
             try:
                 result = response.json()
@@ -39,9 +43,9 @@ try:
                     image_url = "https://api.qrcode-monkey.com" + result["imageUrl"]
                     img = requests.get(image_url)
                     if img.status_code == 200:
-                        with open("qrcode.png", "wb") as f:
+                        with open(save_path, "wb") as f:
                             f.write(img.content)
-                        print("✅ QR Code 已成功保存為 qrcode.png")
+                        print(f"✅ QR Code 已成功保存至 {save_path}")
                     else:
                         print(f"❌ 圖片下載失敗: {img.status_code}")
                 else:
