@@ -29,16 +29,17 @@ save_dir = os.path.expanduser("~/Downloads")
 os.makedirs(save_dir, exist_ok=True)
 save_path = os.path.join(save_dir, "qrcode.png")
 url = "https://api.qrcode-monkey.com/qr/custom"
-logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/final.jpg'
+# logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/final.jpg'
+logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/Apple_Logo_1.jpg'
 
 payload = {
     "data": content,
     "config": {
-        "body": "circle-zebra",
-        "eye": "frame1",
+        "body": "circle",
+        "eye": "frame13",
         "erf1": ["fh"],
         "erf3": ["fh", "fv"],
-        "eyeBall": "ball0",
+        "eyeBall": "ball15",
         "gradientColor1": "#FFAF73",
         "gradientColor2": "#6D9DF8",
         "gradientOnEyes": True,
