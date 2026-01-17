@@ -63,7 +63,7 @@ Input the URL: https://your-url-here.com
 QRCode_Monkey/
 ├── main.py            # 主程式
 ├── environment.yml    # Conda 環境配置檔
-├── src/
+├── assets/
 │   ├── Apple_Logo_1.png
 │   └── final.jpg      # iOS Club Logo (原始檔)
 └── README.md          # 說明文件
