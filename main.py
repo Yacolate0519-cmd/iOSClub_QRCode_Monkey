@@ -1,39 +1,15 @@
 import requests
 import os
 
-def shorten_url(long_url):
-    """使用 TinyURL API 縮短網址"""
-    try:
-        api_url = f"https://tinyurl.com/api-create.php?url={long_url}"
-        response = requests.get(api_url, timeout=5)
-        if response.status_code == 200:
-            return response.text, True
-        else:
-            return long_url, False
-    except Exception as e:
-        return long_url, False
-
-# 輸入網址
 original_url = input("Input the URL: ")
-
-# 自動縮短網址
-print("🔄 正在縮短網址...")
-content, success = shorten_url(original_url)
-
-if success:
-    print(f"✅ 縮短後的網址: {content}")
-else:
-    print(f"⚠️  短網址 API 發生錯誤，使用原始網址: {content}")
-
 save_dir = os.path.expanduser("~/Downloads")
 os.makedirs(save_dir, exist_ok=True)
 save_path = os.path.join(save_dir, "qrcode.png")
 url = "https://api.qrcode-monkey.com/qr/custom"
-# logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/final.jpg'
-logo = 'https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/c6ff5817c3d5dff6a6ddee3336db33b074ba83a6/Apple_Logo_1.jpg'
+logo = "https://raw.githubusercontent.com/Yacolate0519-cmd/iOSClub_QRCode_Monkey/8118921f4fd0aa10f208432e1c3ed067e56cac7c/final.jpg"
 
 payload = {
-    "data": content,
+    "data": original_url,
     "config": {
         "body": "circle",
         "eye": "frame13",
